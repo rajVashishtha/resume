@@ -19,9 +19,26 @@ export default function Hero() {
   return (
     <section className="grid md:grid-cols-3 gap-10 items-center py-12">
       
-      {/* --- Left Column: Text & Description (Takes 2/3 of space on medium screens) --- */}
+      {/* --- VISUAL COLUMN (Now uses order-first on mobile, order-last on desktop) --- 
+      */}
       <motion.div
-        className="md:col-span-2 space-y-4"
+        className="md:col-span-1 flex justify-center md:justify-end order-first md:order-last"
+        variants={visualVariants}
+        initial="hidden"
+        animate="visible"
+      >
+        <div className="w-full max-w-xs aspect-square bg-gray-800 border-4 border-blue-400 rounded-full overflow-hidden relative shadow-2xl shadow-blue-400/40">
+          {/* Ensure Image component has fill or defined height/width if not using the wrapper div dimensions */}
+          <div className="absolute inset-0 flex items-center justify-center text-gray-500 text-sm">
+            <Image src={ProfilePic} alt='Profile picture' layout="fill" objectFit="cover" />
+          </div>
+        </div>
+      </motion.div>
+
+      {/* --- TEXT COLUMN (Now uses order-last on mobile, order-first on desktop) --- 
+      */}
+      <motion.div
+        className="md:col-span-2 space-y-4 order-last md:order-first"
         variants={textVariants}
         initial="hidden"
         animate="visible"
@@ -62,20 +79,6 @@ export default function Hero() {
             <span>Download CV</span>
             <Download className="w-5 h-5" />
           </a>
-        </div>
-      </motion.div>
-
-      {/* --- Right Column: Visual/Image Placeholder (Takes 1/3 of space) --- */}
-      <motion.div
-        className="md:col-span-1 flex justify-center md:justify-end"
-        variants={visualVariants}
-        initial="hidden"
-        animate="visible"
-      >
-        <div className="w-full max-w-xs aspect-square bg-gray-800 border-4 border-blue-400 rounded-full overflow-hidden relative shadow-2xl shadow-blue-400/40">
-          <div className="absolute inset-0 flex items-center justify-center text-gray-500 text-sm">
-            <Image src={ProfilePic} alt='Profile picture'/>
-          </div>
         </div>
       </motion.div>
 
