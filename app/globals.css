@@ -1,26 +1,61 @@
 @import "tailwindcss";
+@tailwind utilities;
+
+/* Theme variables (Tailwind v4 expects custom theme via CSS variables) */
+/* globals.css */
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --neon-50: #e6fbff;
+  --neon-100: #bff7ff;
+  --neon-500: #00e6ff;
+  /* primary neon blue */
+  --neon-600: #00c9e6;
+
+  --matt-900: #070708;
+  /* background */
+  --matt-800: #0f1112;
+  --matt-700: #1b1c1d;
+  --matt-600: #2a2b2c;
+
+  --muted: #9aa0a6;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* page base */
+html,
+body,
+#__next {
+  height: 100%;
+  background: var(--matt-900);
+  color: #e6eef3;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  scroll-behavior: smooth;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* small helpers */
+.card {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.01));
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  border-radius: 12px;
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+.neon-link {
+  color: var(--neon-500);
+  text-underline-offset: 4px;
+  text-decoration: underline;
+}
+
+/* skill bar */
+.skill-track {
+  background: rgba(255, 255, 255, 0.04);
+  height: 10px;
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.skill-fill {
+  height: 10px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, rgba(0, 230, 255, 0.95), rgba(0, 200, 230, 0.9));
 }
