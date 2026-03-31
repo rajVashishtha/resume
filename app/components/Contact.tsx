@@ -1,81 +1,105 @@
-import { motion } from 'framer-motion';
-import { Mail, Github, Linkedin, Send } from 'lucide-react'; // Import icons for contact methods
+'use client'
 
-// Define the neon blue color and shadow for consistency
-const NEON_BLUE = 'rgb(0, 191, 255)'; 
-const glowStyle = {
-  boxShadow: `0 0 15px ${NEON_BLUE}` // Slightly smaller glow for subtle links
-};
-const baseStyle = {
-  boxShadow: '0 0 0px rgba(0, 0, 0, 0)',
-};
+import { motion } from 'framer-motion'
+import { ArrowRight, Download, Github, Linkedin, Mail, Phone } from 'lucide-react'
+import { profile, resumeFile } from '@/app/data/resume'
 
-// Data structure for the links
-const contactLinks = [
+const contactMethods = [
   {
-    name: 'Email',
+    label: 'Email',
+    value: profile.email,
+    href: `mailto:${profile.email}`,
     icon: Mail,
-    href: 'mailto:vashiraj2000@gmail.com',
-    handle: 'vashiraj2000@gmail.com',
-    color: 'text-red-400',
   },
   {
-    name: 'LinkedIn',
+    label: 'Phone',
+    value: profile.phone,
+    href: profile.phoneHref,
+    icon: Phone,
+  },
+  {
+    label: 'LinkedIn',
+    value: 'linkedin.com/in/vashiraj2000',
+    href: profile.linkedIn,
     icon: Linkedin,
-    href: 'https://www.linkedin.com/in/raj-vashisht',
-    handle: '/in/raj-vashisht',
-    color: 'text-blue-500',
   },
   {
-    name: 'GitHub',
+    label: 'GitHub',
+    value: 'github.com/vashiraj2000',
+    href: profile.github,
     icon: Github,
-    href: 'https://github.com/rajVashishtha',
-    handle: '/rajVashishtha',
-    color: 'text-white',
   },
-];
+] as const
 
-export default function Contact(){
+export default function Contact() {
   return (
-    <section id="contact" className="space-y-6">
-      <h2 className="text-3xl font-bold text-white">Get In Touch</h2>
+    <section id="contact" className="scroll-mt-28 pb-8">
+      <motion.div
+        className="panel relative overflow-hidden px-6 py-10 sm:px-10 sm:py-12"
+        initial={{ opacity: 0, y: 28 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: '-80px' }}
+        transition={{ duration: 0.45 }}
+      >
+        <div className="absolute right-0 top-0 h-40 w-40 rounded-full bg-amber-100/10 blur-3xl" />
 
-      <p className="text-gray-400 mb-6 flex items-center space-x-2">
-        <Send className="w-5 h-5 text-blue-400" />
-        <span>I'm currently open to new opportunities. Let's connect!</span>
-      </p>
+        <div className="mx-auto max-w-3xl text-center">
+          <p className="font-code text-xs uppercase tracking-[0.34em] text-stone-400">06 / Contact</p>
+          <h2 className="font-display mt-4 text-5xl font-semibold text-stone-50">Let&apos;s connect</h2>
+          <p className="mt-5 text-base leading-8 text-stone-300 sm:text-lg">
+            I&apos;m always happy to talk about product-minded engineering, frontend architecture, distributed systems, or AI-native tools.
+          </p>
+        </div>
 
-      <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
-        {contactLinks.map((link, index) => (
-          <motion.a 
-            key={link.name}
-            href={link.href}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex flex-col items-center p-6 bg-gray-900 border border-gray-800 rounded-xl transition-colors duration-200 group"
-            
-            // Framer Motion for glow and scale
-            initial={baseStyle}
-            whileHover={{ 
-              scale: 1.05, 
-              backgroundColor: '#1F2937', 
-              ...glowStyle 
-            }}
-            transition={{ type: 'spring', stiffness: 300, damping: 25, delay: index * 0.05 }}
+        <div className="mx-auto mt-10 grid max-w-4xl gap-4 sm:grid-cols-2">
+          {contactMethods.map((method, index) => {
+            const Icon = method.icon
+            const isExternal = method.href.startsWith('http')
+
+            return (
+              <motion.a
+                key={method.label}
+                href={method.href}
+                target={isExternal ? '_blank' : undefined}
+                rel={isExternal ? 'noreferrer' : undefined}
+                className="rounded-[24px] border border-white/10 bg-black/20 p-5 text-left transition hover:-translate-y-1 hover:border-amber-100/20"
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.35, delay: index * 0.06 }}
+              >
+                <div className="flex items-center gap-4">
+                  <div className="rounded-2xl border border-amber-100/15 bg-amber-100/10 p-3 text-stone-50">
+                    <Icon className="h-5 w-5" />
+                  </div>
+                  <div className="min-w-0">
+                    <p className="font-code text-[11px] uppercase tracking-[0.3em] text-stone-400">{method.label}</p>
+                    <p className="mt-1 truncate text-sm text-stone-300">{method.value}</p>
+                  </div>
+                </div>
+              </motion.a>
+            )
+          })}
+        </div>
+
+        <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
+          <a
+            href={`mailto:${profile.email}`}
+            className="inline-flex items-center gap-2 rounded-2xl bg-stone-100 px-6 py-3 text-sm font-semibold text-[#111111] transition hover:-translate-y-0.5 hover:bg-white"
           >
-            {/* Icon */}
-            <link.icon className={`w-8 h-8 mb-3 ${link.color} group-hover:animate-pulse`} strokeWidth={2} />
-            
-            {/* Name */}
-            <p className="font-semibold text-white text-lg">{link.name}</p>
-            
-            {/* Handle/Link */}
-            <p className="text-sm text-gray-400 mt-1 truncate max-w-full">
-              {link.handle}
-            </p>
-          </motion.a>
-        ))}
-      </div>
+            <span className="text-[#111111]">Email Raj</span>
+            <ArrowRight className="h-4 w-4 text-[#111111]" />
+          </a>
+          <a
+            href={resumeFile}
+            download
+            className="inline-flex items-center gap-2 rounded-2xl border border-amber-100/15 bg-amber-100/10 px-6 py-3 text-sm font-semibold text-amber-50 transition hover:-translate-y-0.5 hover:bg-amber-100 hover:text-zinc-950"
+          >
+            Download resume
+            <Download className="h-4 w-4" />
+          </a>
+        </div>
+      </motion.div>
     </section>
   )
 }
