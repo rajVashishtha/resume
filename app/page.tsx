@@ -1,22 +1,23 @@
-"use client"
+import Awards from '@/app/components/Awards'
+import Contact from '@/app/components/Contact'
+import Education from '@/app/components/Education'
+import Experience from '@/app/components/Experience'
 import Hero from '@/app/components/Hero'
 import NavBar from '@/app/components/NavBar'
-import Skills from '@/app/components/Skills'
 import Projects from '@/app/components/Projects'
-import Experience from '@/app/components/Experience'
-import Contact from '@/app/components/Contact'
-import AwardsAndCertifications from './components/Awards'
+import Skills from '@/app/components/Skills'
 
 export default function Page() {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen overflow-x-hidden">
       <NavBar />
-      <main className="max-w-5xl mx-auto px-6 py-12 space-y-12">
+      <main className="mx-auto flex max-w-6xl flex-col gap-24 px-5 pb-20 pt-8 sm:px-6 lg:px-8">
         <Hero />
-        <Skills />
         <Experience />
         <Projects />
-        <AwardsAndCertifications />
+        <Skills />
+        <Awards />
+        <Education />
         <Contact />
       </main>
     </div>

@@ -1,61 +1,115 @@
 @import "tailwindcss";
 @tailwind utilities;
 
-/* Theme variables (Tailwind v4 expects custom theme via CSS variables) */
-/* globals.css */
+@layer base {
+  :root {
+    --ink-950: #0b0d10;
+    --ink-900: #121417;
+    --ink-850: #1a1d21;
+    --copy: #ebe7df;
+    --muted: #a7a096;
+  }
 
-:root {
-  --neon-50: #e6fbff;
-  --neon-100: #bff7ff;
-  --neon-500: #00e6ff;
-  /* primary neon blue */
-  --neon-600: #00c9e6;
+  * {
+    box-sizing: border-box;
+  }
 
-  --matt-900: #070708;
-  /* background */
-  --matt-800: #0f1112;
-  --matt-700: #1b1c1d;
-  --matt-600: #2a2b2c;
-
-  --muted: #9aa0a6;
+  html {
+    scroll-behavior: smooth;
+  }
 }
 
-/* page base */
 html,
 body,
 #__next {
   height: 100%;
-  background: var(--matt-900);
-  color: #e6eef3;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-  scroll-behavior: smooth;
 }
 
-/* small helpers */
-.card {
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.01));
-  border: 1px solid rgba(255, 255, 255, 0.04);
-  border-radius: 12px;
+body {
+  position: relative;
+  isolation: isolate;
+  background-color: var(--ink-950);
+  background-image:
+    radial-gradient(circle at 14% 0%, rgba(245, 200, 124, 0.14), transparent 26%),
+    radial-gradient(circle at 88% 8%, rgba(255, 255, 255, 0.06), transparent 24%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.035), transparent 22%),
+    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: auto, auto, auto, 56px 56px, 56px 56px;
+  background-position: center top;
+  color: var(--copy);
+  font-family: var(--font-sans), sans-serif;
 }
 
-.neon-link {
-  color: var(--neon-500);
-  text-underline-offset: 4px;
-  text-decoration: underline;
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at center, transparent 0%, rgba(11, 13, 16, 0.14) 54%, rgba(11, 13, 16, 0.72) 100%);
 }
 
-/* skill bar */
-.skill-track {
-  background: rgba(255, 255, 255, 0.04);
-  height: 10px;
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+::selection {
+  background: rgba(245, 200, 124, 0.24);
+  color: #fffdf8;
+}
+
+@layer components {
+  .panel {
+    @apply rounded-[28px] border border-white/10 bg-[#111317]/85 shadow-[0_20px_80px_rgba(0,0,0,0.38)] backdrop-blur-xl transition-all duration-300;
+  }
+
+  .panel:hover {
+    @apply border-amber-100/20 shadow-[0_24px_90px_rgba(120,90,36,0.14)];
+  }
+
+  .font-display {
+    font-family: var(--font-display), serif;
+  }
+
+  .font-code {
+    font-family: var(--font-ibm-plex-mono), monospace;
+  }
+
+  .eyebrow {
+    @apply text-xs uppercase tracking-[0.32em] text-stone-300/65;
+    font-family: var(--font-ibm-plex-mono), monospace;
+  }
+
+  .section-title {
+    @apply text-4xl font-semibold tracking-tight text-stone-50 sm:text-5xl;
+    font-family: var(--font-display), serif;
+  }
+
+  .chip {
+    @apply rounded-full border border-amber-100/15 bg-amber-100/10 px-3 py-1 text-sm font-medium text-amber-50/90;
+  }
+
+  .chip-muted {
+    @apply rounded-full border border-white/10 bg-white/[0.04] px-3 py-1 text-sm text-stone-200;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--ink-950);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(168, 162, 158, 0.35);
   border-radius: 999px;
-  overflow: hidden;
 }
 
-.skill-fill {
-  height: 10px;
-  border-radius: 999px;
-  background: linear-gradient(90deg, rgba(0, 230, 255, 0.95), rgba(0, 200, 230, 0.9));
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(168, 162, 158, 0.55);
 }

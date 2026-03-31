@@ -1,80 +1,66 @@
-import { motion } from 'framer-motion';
-import { Award, Star } from 'lucide-react'; // Using the Award and Star icons
+'use client'
 
-// --- Awards and Certifications Data ---
-const awardsData = [
+import { motion } from 'framer-motion'
+import { Award, BadgeCheck } from 'lucide-react'
+import SectionHeading from '@/app/components/SectionHeading'
+import { awards, certifications } from '@/app/data/resume'
+
+const groups = [
   {
-    icon: Award, // Lucide Award icon
-    name: 'Employee Recognition Award, Oracle',
-    description: 'Initiative in building the new UI framework (MAUI).',
-    color: 'text-yellow-400',
-  },
-  {
-    icon: Star, // Lucide Star icon
-    name: 'Hacknovate 2.0, ABESIT',
-    description: '3rd Prize Winner at National Hackathon.',
-    color: 'text-sky-400',
-  },
-  {
+    title: 'Awards',
+    eyebrow: 'Recognition',
     icon: Award,
-    name: 'Coding Competition, 1st Prize',
-    description: 'Algorithmic Problem Solving.',
-    color: 'text-yellow-500',
+    items: awards,
   },
   {
-    icon: Star,
-    name: 'React Professional Certificate',
-    description: 'Hackerrank.',
-    color: 'text-green-500',
+    title: 'Certifications',
+    eyebrow: 'Validated skills',
+    icon: BadgeCheck,
+    items: certifications,
   },
-];
+] as const
 
-export default function AwardsAndCertifications(){
-  // Framer Motion variants for a staggered entrance
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    show: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1, // Delay between each award item
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { x: -20, opacity: 0 },
-    show: { x: 0, opacity: 1 },
-  };
-
+export default function Awards() {
   return (
-    <section id="awards" className="space-y-6">
-      <h2 className="text-3xl font-bold text-white">Awards & Certifications</h2>
+    <section id="credentials" className="space-y-8 scroll-mt-28">
+      <SectionHeading index="04" title="Credentials" eyebrow="Awards and certifications" />
 
-      <motion.div
-        className="space-y-4"
-        variants={containerVariants}
-        initial="hidden"
-        whileInView="show"
-        viewport={{ once: true, amount: 0.2 }}
-      >
-        {awardsData.map((award, index) => (
-          <motion.div
-            key={index}
-            variants={itemVariants}
-            className="flex items-start p-4 bg-gray-800/70 border-l-4 border-l-yellow-500 rounded-lg shadow-xl"
-            
-          >
-            {/* Icon */}
-            <award.icon className={`w-6 h-6 mr-4 flex-shrink-0 ${award.color}`} strokeWidth={2.5} />
+      <div className="grid gap-6 xl:grid-cols-2">
+        {groups.map((group, index) => {
+          const Icon = group.icon
 
-            {/* Content */}
-            <div>
-              <p className="font-semibold text-white">{award.name}</p>
-              <p className="text-sm text-gray-400 mt-1">{award.description}</p>
-            </div>
-          </motion.div>
-        ))}
-      </motion.div>
+          return (
+            <motion.article
+              key={group.title}
+              className="panel overflow-hidden p-7"
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-80px' }}
+              transition={{ duration: 0.4, delay: index * 0.08 }}
+            >
+              <div className="flex items-center gap-4">
+                <div className="rounded-2xl border border-amber-100/15 bg-amber-100/10 p-3 text-stone-50">
+                  <Icon className="h-6 w-6" />
+                </div>
+                <div>
+                  <p className="font-code text-[11px] uppercase tracking-[0.3em] text-stone-400">{group.eyebrow}</p>
+                  <h3 className="mt-1 text-2xl font-semibold text-stone-50">{group.title}</h3>
+                </div>
+              </div>
+
+              <div className="mt-6 space-y-4">
+                {group.items.map((item) => (
+                  <div key={item.name} className="rounded-[24px] border border-white/10 bg-white/[0.03] p-5">
+                    <h4 className="text-lg font-semibold text-stone-50">{item.name}</h4>
+                    <p className="mt-1 text-sm text-amber-50/75">{item.issuer}</p>
+                    <p className="mt-3 text-sm leading-7 text-stone-400">{item.description}</p>
+                  </div>
+                ))}
+              </div>
+            </motion.article>
+          )
+        })}
+      </div>
     </section>
-  );
+  )
 }

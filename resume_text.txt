@@ -1,0 +1,371 @@
+RAJ  VASHISHT Software  Engineer  (Fullstack) 
++91  6375991056  |  vashiraj2000@gmail.com |  LinkedIn |  GitHub  
+SUMMARY
+ 
+Fullstack  Software  Engineer  with  5+  years  building  scalable,  high-performance  web  applications.  Expertise  in  crafting  clean  UIs,  optimizing  
+frontend
+ 
+performance,
+ 
+and
+ 
+driving
+ 
+product
+ 
+impact
+ 
+using
+ 
+React,
+ 
+FastAPI,
+ 
+and
+ 
+AI
+ 
+models.
+ 
+Skilled
+ 
+in
+ 
+cloud-native
+ 
+practices,
+ 
+DevOps
+ 
+tools,
+ 
+and
+ 
+automation
+ 
+testing,
+ 
+with
+ 
+a
+ 
+proven
+ 
+track
+ 
+record
+ 
+of
+ 
+delivering
+ 
+measurable
+ 
+business
+ 
+outcomes
+ 
+and
+ 
+enhancing
+ 
+user
+ 
+experience.
+ 
+TECHNICAL  SKILLS
+ 
+Programming  Languages:  JavaScript,  TypeScript,  Python,  Java,  C/C++,  GoLang,  SQL  Frontend:  React.js,  Redux,  Next.js,  Angular,  Tailwind,  CSS,  MUI  Backend:  GraphQL,  Node.js,  Express,  Flask,  Django,  NEST.js,  gRPC,  Websockets  Tools:  LangGraph,  AWS,  OCI,  Docker,  Jenkins,  Airﬂow,  Cypress,  Jest,  Git,  JIRA  
+PROFESSIONAL  EXPERIENCE  (5+  YEARS)
+ 
+Oracle  |
+ Member  of  Technical  Staff  (Fullstack  Engineer) |  
+Noida  |
+ Apr  2022  -  Present   
+Workload  Protection  ●  Architected  a  high-scale  Adhoc  Query  Engine  using  a  distributed  fan-out  architecture  across  multiple  OCI  regions,  consolidating  results  
+into
+ 
+a
+ 
+central
+ 
+hub
+ 
+for
+ 
+real-time
+ 
+polling.
+ ●  Optimized  data  synchronization  via  dual-layer  persistence  (DB  replication  +  Redis  Stream  Caching),  reducing  cross-regional  retrieval  
+latency
+ 
+by
+ 
+40%
+.
+ ●  Scaled  agent  communication  by  developing  a  WebSocket-based  dispatch  system,  enabling  concurrent  query  delivery  to  10,000+  
+distributed
+ 
+agents
+.
+ Technologies  Used:  Java,  Redis,  WebSockets,  Oracle  DB,  Docker 
+OCI  Console  ●  Architected  and  implemented  a  full-stack  compliance  assessment  application  utilizing  React,  Node.js,  and  Docker,  which  optimized  
+regulatory
+ 
+monitoring
+ 
+workﬂows
+ 
+and
+ 
+improved
+ 
+tracking
+ 
+efﬁciency
+ 
+by
+ 
+30%.
+ ●  Led  the  strategic  migration  of  legacy  plugins  to  a  centralized,  conﬁguration-based  UI  framework,  standardizing  the  OCI  console  
+architecture
+ 
+and
+ 
+reducing
+ 
+long-term
+ 
+maintenance
+ 
+resource
+ 
+requirements
+ 
+by
+ 
+70%.
+ ●  Received  the  Employee  Recognition  Award  for  driving  the  technical  initiative  and  development  of  the  new  MAUI  (UI  Framework) ,  
+demonstrating
+ 
+ownership
+ 
+of
+ 
+cross-team
+ 
+frontend
+ 
+standards.
+ ●  Engineered  a  custom  API  client  refactor  to  handle  complex  data  streams,  resulting  in  a  25%  performance  optimization  for  large  ﬁle  
+downloads.
+ ●  Maintained  system  reliability  by  diagnosing  and  resolving  critical,  customer-impacting  bugs  within  the  OCI  scanning  platform  to  ensure  
+strict
+ 
+adherence
+ 
+to
+ 
+enterprise
+ 
+SLAs.
+ Technologies  Used:  React,  Java,  Docker,  Node.js,  Cypress 
+Studypaq  |  
+Fullstack  Engineer |  
+Feb  2021  -  Apr  2022 ●  Led  a  team  of  5  developers  to  deliver  a  production-ready  educational  tool,  improving  team  collaboration  and  delivery  speed.  ●  Implemented  DAG  on  Airﬂow ,  reducing  document-to-HTML  conversion  process  time  by  70%.  ●  Created  microservices  using  Node.js ,  Flask ,  and  gRPC ,  optimizing  content  rendering  by  30%  for  better  SEO  using  Next.js .  ●  Developed  CI/CD  pipelines  with  Docker  and  Jenkins ,  increasing  deployment  efﬁciency  by  70%  and  reducing  time-to-market  by  40%.  ●  Reduced  AWS  instance  costs  for  running  applications  by  more  than  40%  through  stress  testing  and  optimization.  Technologies  Used:  Node.js,  Flask,  gRPC,  Docker,  Jenkins,  Airﬂow,  Next.js 
+PROJECTS
+ 
+AI  Notes  |
+ Github ●  
+Architected
+ 
+an
+ 
+AI-native
+ 
+web
+ 
+app
+ 
+using
+ 
+Next.js,
+ 
+FastAP
+ 
+and
+ 
+Gemini
+ 
+LLMsI
+ 
+to
+ 
+autonomously
+ 
+synthesize
+ 
+structured
+ 
+study
+ 
+notes
+ 
+from
+ 
+YouTube
+ 
+videos,
+ 
+podcasts,
+ 
+articles,
+ 
+and
+ 
+PDF
+s.
+ ●  Orchestrated  multimodal  ingestion  pipelines  with  LangGraph ,  utilizing  yt-dlp  and  PyPDF  to  extract  text  and  audio  for  native  
+processing
+ 
+via
+ 
+the
+ 
+Google
+ 
+Gemini
+ 
+API.
+ ●  Developed  advanced  prompt  engineering  workﬂows  to  consistently  format  complex  200k+  character  contexts  into  structured,  
+Markdown-based
+ 
+summaries
+ 
+and
+ 
+key
+ 
+concepts.
+ ●  Optimized  LLM  inference  costs  and  latency  by  30%  through  implementing  a  MongoDB  caching  layer  to  detect  duplicate  requests  and  
+serve
+ 
+previously
+ 
+processed
+ 
+notes
+ 
+instantly. Technologies  Used:  React,  FastAPI,  LangGraph,  Gemini  LLM   
+Transformed  By  Uplers
+ 
+Quickly |
+ Github 
+| 
+NPM
+ ●  
+Engineered
+ 
+a
+ 
+high-performance
+ 
+CLI
+ 
+tool
+ 
+to
+ 
+accelerate
+ 
+large
+ 
+ﬁle
+ 
+transfers
+ 
+via
+ 
+parallel
+ 
+chunk
+ 
+downloading
+ 
+and
+ 
+connection
+ 
+pooling,
+ 
+reducing
+ 
+overall
+ 
+download
+ 
+times
+ 
+by
+ 
+up
+ 
+to
+ 
+75%
+ 
+compared
+ 
+to
+ 
+standard
+ 
+single-thread
+ 
+methods.
+ ●  Developed  a  resilient  resumable  download  engine  featuring  automatic  per-chunk  retries  and  smart  chunk  splitting  based  on  dynamic  
+ﬁle
+ 
+sizes,
+ 
+ensuring
+ 
+99%
+ 
+download
+ 
+success
+ 
+rates
+ 
+even
+ 
+across
+ 
+unstable
+ 
+network
+ 
+conditions. Technologies  Used:  Node.js,  Typescript,  UNDICI  
+Algo  Visualiser  |  
+Github ●  Developed  a  real-time  algorithm  visualization  engine  for  complex  sorting  and  searching  processes,  boosting  user  engagement  and  
+comprehension
+ 
+by
+ 
+90%.
+ 
+EDUCATION
+ 
+B.Tech  in  Computer  Science |  
+Sept  2021 
+Laxmi  Devi  Institute  of  Engineering  and  Technology
+ 
+|
+ 
+Alwar  
+AWARDS  &  CERTIFICATIONS
+ 
+●  Employee  Recognition  Award,  Oracle  –  Initiative  in  building  the  new  UI  framework  (MAUI)  ●  Hacknovate  2.0,  ABESIT  –  3 ʳᵈ  Prize  Winner,  National  Hackathon  ●  AWS  Cloud  Solution  Architect  Certiﬁcate  ●  React  Professional  Certiﬁcate  -  Hackerrank  
+Transformed  By  Uplers
+ 
